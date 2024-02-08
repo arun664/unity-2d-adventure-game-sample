@@ -52,6 +52,14 @@ public class PlayerController : MonoBehaviour
     void UpdateMovement(Vector2 axis)
     {
         Vector2 movementInput = axis;
+
+        //legacy normalization if mode --DIGITAL NORMALIZE doesn't exist in ActionMap
+        if(movementInput.magnitude > 1) { 
+            movementInput.Normalize();
+        }
+
+        print(movementInput.magnitude);
+       // print(movementInput);
         Vector2 position = (Vector2)transform.position + 3.0f * Time.deltaTime * movementInput;
         transform.position = position;
     }
