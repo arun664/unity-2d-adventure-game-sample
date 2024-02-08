@@ -1,26 +1,64 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Plastic.Newtonsoft.Json.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public InputAction MoveAction;
+
+    [SerializeField] InputActionAsset playerInputController;
+    InputActionMap playerInputActionMap;
+    InputAction moveAction;
+    Vector2 axis = default(Vector2);
+
+    private void Awake()
+    {
+        playerInputActionMap = playerInputController.FindActionMap("PlayerMovement");
+        moveAction = playerInputController.FindAction("Movement");
+    }
+
+    private void OnEnable()
+    {
+        moveAction.Enable();
+    }
+
+    private void OnDisable()
+    {
+        moveAction.Disable();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        //QualitySettings.vSyncCount = 0;
-        //Application.targetFrameRate = 10;
-        MoveAction.Enable();
-    }
+        moveAction.performed += Move;
+        moveAction.canceled += Move;
 
+    }
     // Update is called once per frame
     void Update()
     {
-        Vector2 move = MoveAction.ReadValue<Vector2>();
-        Debug.Log(move);
-        Vector2 position = (Vector2) transform.position + move * 3.0f * Time.deltaTime;
+        UpdateMovement(axis);
+    }
+
+
+
+    void Move(InputAction.CallbackContext ctx)
+    {
+        axis = ctx.ReadValue<Vector2>();
+    }
+
+    void UpdateMovement(Vector2 axis)
+    {
+        Vector2 movementInput = axis;
+        Vector2 position = (Vector2)transform.position + 3.0f * Time.deltaTime * movementInput;
         transform.position = position;
+    }
+
+
+    void PrintLog(string msg)
+    {
+        Debug.Log(msg);
     }
 }
