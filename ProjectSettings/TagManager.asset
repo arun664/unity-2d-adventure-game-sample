@@ -41,3 +41,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Tilemap
+    uniqueID: 593254505
+    locked: 0
