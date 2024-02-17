@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
 
     // Variables related to the health system
     public int maxHealth = 5;
-    int currentHealth;
+    int currentHealth = 1;
 
     private void Awake()
     {
@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
-        currentHealth = maxHealth;
+        //currentHealth = maxHealth;
 
     }
     // Update is called once per frame
@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
         rigidbody2d.MovePosition(position);
     }
 
-    void ChangeHealth(int amount)
+    public void ChangeHealth(int amount)
     {
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         Debug.Log(currentHealth + "/" + maxHealth);

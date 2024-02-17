@@ -4126,6 +4126,7 @@ GameObject:
   - component: {fileID: 961684953}
   - component: {fileID: 961684952}
   - component: {fileID: 961684954}
+  - component: {fileID: 961684955}
   m_Layer: 0
   m_Name: CollectibleHealth
   m_TagString: Untagged
@@ -4245,6 +4246,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.1984372, y: 2.95}
   m_EdgeRadius: 0
+--- !u!114 &961684955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961684951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8461c9499dcdad49828d86bb793834c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1285105104
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4858,7 +4871,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4388032606328902937, guid: 4e09bad965fd66848aa4fdc65a9464b0, type: 3}
       propertyPath: maxHealth
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7019043872126166145, guid: 4e09bad965fd66848aa4fdc65a9464b0, type: 3}
       propertyPath: m_LocalPosition.x
