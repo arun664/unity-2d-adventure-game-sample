@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.Plastic.Newtonsoft.Json.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,7 +12,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] InputActionAsset playerInputController;
     InputActionMap playerInputActionMap;
     InputAction moveAction;
-    Vector2 axis = default(Vector2);
+    Rigidbody2D rigidbody2d;
+    Vector2 move;
 
     private void Awake()
     {
@@ -32,30 +34,21 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        moveAction.performed += Move;
-        moveAction.canceled += Move;
+        rigidbody2d = GetComponent<Rigidbody2D>();
 
     }
     // Update is called once per frame
     void Update()
     {
-        UpdateMovement(axis);
+        move = moveAction.ReadValue<Vector2>();
+        Debug.Log(move);
     }
 
-
-
-    void Move(InputAction.CallbackContext ctx)
+    private void FixedUpdate()
     {
-        axis = ctx.ReadValue<Vector2>();
+        Vector2 position = (Vector2)rigidbody2d.position + move * 3.0f * Time.deltaTime;
+        rigidbody2d.MovePosition(position);
     }
-
-    void UpdateMovement(Vector2 axis)
-    {
-        Vector2 movementInput = axis;
-        Vector2 position = (Vector2)transform.position + 3.0f * Time.deltaTime * movementInput;
-        transform.position = position;
-    }
-
 
     void PrintLog(string msg)
     {
