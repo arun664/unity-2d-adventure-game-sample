@@ -8,12 +8,17 @@ using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
-
+    // Variables related to player character movement
     [SerializeField] InputActionAsset playerInputController;
     InputActionMap playerInputActionMap;
     InputAction moveAction;
     Rigidbody2D rigidbody2d;
     Vector2 move;
+    public float speed = 3.0f;
+
+    // Variables related to the health system
+    public int maxHealth = 5;
+    int currentHealth;
 
     private void Awake()
     {
@@ -35,6 +40,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
+        currentHealth = maxHealth;
 
     }
     // Update is called once per frame
@@ -46,12 +52,13 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector2 position = (Vector2)rigidbody2d.position + move * 3.0f * Time.deltaTime;
+        Vector2 position = (Vector2)rigidbody2d.position + move * speed * Time.deltaTime;
         rigidbody2d.MovePosition(position);
     }
 
-    void PrintLog(string msg)
+    void ChangeHealth(int amount)
     {
-        Debug.Log(msg);
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        Debug.Log(currentHealth + "/" + maxHealth);
     }
 }
