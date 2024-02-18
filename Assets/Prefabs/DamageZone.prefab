@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4179898357857754561}
   - component: {fileID: 3388891207615766799}
   - component: {fileID: 6467030940325725089}
+  - component: {fileID: 4323324722625035837}
   m_Layer: 0
   m_Name: DamageZone
   m_TagString: Untagged
@@ -72,9 +73,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 593254505
+  m_SortingLayer: 1
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 3ae37404d426cca4fa1c055cdeb711d9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -153,10 +154,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.14641643, y: -0.079630435}
+  m_Offset: {x: -0.0515368, y: 0.15079165}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -167,5 +168,17 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7896199, y: 0.9356674}
+  m_Size: {x: 1.1420302, y: 1.2338591}
   m_EdgeRadius: 0
+--- !u!114 &4323324722625035837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5885303203857482490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f4cd1d421725624983ceed19f48b94a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
