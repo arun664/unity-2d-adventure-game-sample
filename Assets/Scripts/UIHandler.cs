@@ -5,15 +5,27 @@ using UnityEngine.UIElements;
 
 public class UIHandler : MonoBehaviour
 {
+    public static UIHandler instance {  get; private set; }
+    private VisualElement m_HealthBar;
 
-    public float currentHealth = 0.5f;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         UIDocument uidocument = GetComponent<UIDocument>();
-        VisualElement healthBar = uidocument.rootVisualElement.Q<VisualElement>("HealthBar");
-        healthBar.style.width = Length.Percent(currentHealth *  100.0f);
+        m_HealthBar = uidocument.rootVisualElement.Q<VisualElement>("HealthBar");
+        SetHealthValue(1.0f);
+    }
+
+    public void SetHealthValue(float percentage)
+    {
+        m_HealthBar.style.width = Length.Percent(percentage * 100.0f);
+
     }
 
 }
