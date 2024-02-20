@@ -13,12 +13,17 @@ public class EnemyController : MonoBehaviour
     float timer;
     int direction = 1;
 
+    //Variables to handle animation
+    Animator animator;
+
 
     // Start is called before the first frame update
     void Start()
     {
         enemyRb2D = GetComponent<Rigidbody2D>();
         timer = changeTime;
+
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -30,6 +35,9 @@ public class EnemyController : MonoBehaviour
             direction = -direction;
             timer = changeTime;
         }
+
+        animator.SetFloat("Move X", 0);
+        animator.SetFloat("Move Y", direction);
     }
 
     // FixedUpdate has the same call rate as the physics system
