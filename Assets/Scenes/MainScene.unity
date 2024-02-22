@@ -4941,7 +4941,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5232945745488167706, guid: 0c74f7137bf84314aa52e3561ec7993e, type: 3}
       propertyPath: m_Constraints
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7814444612907883547, guid: 0c74f7137bf84314aa52e3561ec7993e, type: 3}
       propertyPath: m_LocalScale.x
@@ -5117,6 +5117,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCharacter
       objectReference: {fileID: 0}
+    - target: {fileID: 1307496472682371341, guid: 4e09bad965fd66848aa4fdc65a9464b0, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2611916288616364685, guid: 4e09bad965fd66848aa4fdc65a9464b0, type: 3}
       propertyPath: m_Size.x
       value: 0.66713095
@@ -5128,6 +5132,38 @@ PrefabInstance:
     - target: {fileID: 4388032606328902937, guid: 4e09bad965fd66848aa4fdc65a9464b0, type: 3}
       propertyPath: maxHealth
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4388032606328902937, guid: 4e09bad965fd66848aa4fdc65a9464b0, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 2918773007027808934, guid: 2070608ae7139df41a65b88c7fafdae1, type: 3}
+    - target: {fileID: 4388032606328902937, guid: 4e09bad965fd66848aa4fdc65a9464b0, type: 3}
+      propertyPath: launchAction.m_Name
+      value: Launch
+      objectReference: {fileID: 0}
+    - target: {fileID: 4388032606328902937, guid: 4e09bad965fd66848aa4fdc65a9464b0, type: 3}
+      propertyPath: launchAction.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4388032606328902937, guid: 4e09bad965fd66848aa4fdc65a9464b0, type: 3}
+      propertyPath: launchAction.m_ExpectedControlType
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 4388032606328902937, guid: 4e09bad965fd66848aa4fdc65a9464b0, type: 3}
+      propertyPath: launchAction.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4388032606328902937, guid: 4e09bad965fd66848aa4fdc65a9464b0, type: 3}
+      propertyPath: launchAction.m_SingletonActionBindings.Array.data[0].m_Id
+      value: dbe3ad5c-d157-4852-8eda-5bd0115c2c1b
+      objectReference: {fileID: 0}
+    - target: {fileID: 4388032606328902937, guid: 4e09bad965fd66848aa4fdc65a9464b0, type: 3}
+      propertyPath: launchAction.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Keyboard>/c
+      objectReference: {fileID: 0}
+    - target: {fileID: 4388032606328902937, guid: 4e09bad965fd66848aa4fdc65a9464b0, type: 3}
+      propertyPath: launchAction.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Launch
       objectReference: {fileID: 0}
     - target: {fileID: 7019043872126166145, guid: 4e09bad965fd66848aa4fdc65a9464b0, type: 3}
       propertyPath: m_LocalScale.x
