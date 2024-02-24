@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour
 
     //Variables to handle animation
     Animator animator;
+    bool aggressive = true;
 
 
     // Start is called before the first frame update
@@ -43,6 +44,10 @@ public class EnemyController : MonoBehaviour
     // FixedUpdate has the same call rate as the physics system
     private void FixedUpdate()
     {
+        if (!aggressive)
+        {
+            return;
+        }
         Vector2 position = enemyRb2D.position;
 
         if (vertical)
@@ -65,5 +70,12 @@ public class EnemyController : MonoBehaviour
             player.ChangeHealth(-1);
         }
 
+    }
+
+    public void Fix()
+    {
+        aggressive = false;
+        enemyRb2D.simulated = false;
+        animator.SetTrigger("Fixed");
     }
 }
