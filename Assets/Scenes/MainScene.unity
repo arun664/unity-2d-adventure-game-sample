@@ -4184,6 +4184,7 @@ GameObject:
   - component: {fileID: 967200527}
   - component: {fileID: 967200526}
   - component: {fileID: 967200529}
+  - component: {fileID: 967200530}
   m_Layer: 10
   m_Name: NPC
   m_TagString: Untagged
@@ -4273,7 +4274,7 @@ Transform:
   m_GameObject: {fileID: 967200525}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.2, y: -3.33, z: 0}
+  m_LocalPosition: {x: -6.48, y: -1.84, z: 0}
   m_LocalScale: {x: 0.6935, y: 0.6935, z: 0.6935}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4311,7 +4312,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.4541114, y: -0.4214965}
+  m_Offset: {x: -0.39763594, y: 0.016195357}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4322,8 +4323,20 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7984439, y: 0.5525687}
+  m_Size: {x: 1.137303, y: 1.4279524}
   m_EdgeRadius: 0
+--- !u!114 &967200530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967200525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cb41c229748ae24a868adbee690f58d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1240136713
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4767,6 +4780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a738d23b465f91f44a248a0868538dfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayTime: 4
 --- !u!1 &2036846975
 GameObject:
   m_ObjectHideFlags: 0
@@ -5275,11 +5289,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2611916288616364685, guid: 4e09bad965fd66848aa4fdc65a9464b0, type: 3}
       propertyPath: m_Size.x
-      value: 0.66713095
+      value: 0.9644186
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611916288616364685, guid: 4e09bad965fd66848aa4fdc65a9464b0, type: 3}
+      propertyPath: m_Size.y
+      value: 1.2825676
       objectReference: {fileID: 0}
     - target: {fileID: 2611916288616364685, guid: 4e09bad965fd66848aa4fdc65a9464b0, type: 3}
       propertyPath: m_Offset.x
-      value: 0.036857843
+      value: 0.023345023
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611916288616364685, guid: 4e09bad965fd66848aa4fdc65a9464b0, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.6412838
       objectReference: {fileID: 0}
     - target: {fileID: 4388032606328902937, guid: 4e09bad965fd66848aa4fdc65a9464b0, type: 3}
       propertyPath: maxHealth
@@ -5290,6 +5312,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2918773007027808934, guid: 2070608ae7139df41a65b88c7fafdae1, type: 3}
     - target: {fileID: 4388032606328902937, guid: 4e09bad965fd66848aa4fdc65a9464b0, type: 3}
+      propertyPath: talkAction.m_Name
+      value: Talk
+      objectReference: {fileID: 0}
+    - target: {fileID: 4388032606328902937, guid: 4e09bad965fd66848aa4fdc65a9464b0, type: 3}
+      propertyPath: talkAction.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4388032606328902937, guid: 4e09bad965fd66848aa4fdc65a9464b0, type: 3}
       propertyPath: launchAction.m_Name
       value: Launch
       objectReference: {fileID: 0}
@@ -5298,20 +5328,40 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4388032606328902937, guid: 4e09bad965fd66848aa4fdc65a9464b0, type: 3}
+      propertyPath: talkAction.m_ExpectedControlType
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 4388032606328902937, guid: 4e09bad965fd66848aa4fdc65a9464b0, type: 3}
       propertyPath: launchAction.m_ExpectedControlType
       value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 4388032606328902937, guid: 4e09bad965fd66848aa4fdc65a9464b0, type: 3}
+      propertyPath: talkAction.m_SingletonActionBindings.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4388032606328902937, guid: 4e09bad965fd66848aa4fdc65a9464b0, type: 3}
       propertyPath: launchAction.m_SingletonActionBindings.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4388032606328902937, guid: 4e09bad965fd66848aa4fdc65a9464b0, type: 3}
+      propertyPath: talkAction.m_SingletonActionBindings.Array.data[0].m_Id
+      value: bdd084e2-9bb2-42ea-8d17-f5efac1972af
+      objectReference: {fileID: 0}
+    - target: {fileID: 4388032606328902937, guid: 4e09bad965fd66848aa4fdc65a9464b0, type: 3}
       propertyPath: launchAction.m_SingletonActionBindings.Array.data[0].m_Id
       value: dbe3ad5c-d157-4852-8eda-5bd0115c2c1b
       objectReference: {fileID: 0}
     - target: {fileID: 4388032606328902937, guid: 4e09bad965fd66848aa4fdc65a9464b0, type: 3}
+      propertyPath: talkAction.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Keyboard>/x
+      objectReference: {fileID: 0}
+    - target: {fileID: 4388032606328902937, guid: 4e09bad965fd66848aa4fdc65a9464b0, type: 3}
       propertyPath: launchAction.m_SingletonActionBindings.Array.data[0].m_Path
       value: <Keyboard>/c
+      objectReference: {fileID: 0}
+    - target: {fileID: 4388032606328902937, guid: 4e09bad965fd66848aa4fdc65a9464b0, type: 3}
+      propertyPath: talkAction.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Talk
       objectReference: {fileID: 0}
     - target: {fileID: 4388032606328902937, guid: 4e09bad965fd66848aa4fdc65a9464b0, type: 3}
       propertyPath: launchAction.m_SingletonActionBindings.Array.data[0].m_Action
@@ -5327,11 +5377,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7019043872126166145, guid: 4e09bad965fd66848aa4fdc65a9464b0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.98
+      value: -7.77
       objectReference: {fileID: 0}
     - target: {fileID: 7019043872126166145, guid: 4e09bad965fd66848aa4fdc65a9464b0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.69
+      value: -3.79
       objectReference: {fileID: 0}
     - target: {fileID: 7019043872126166145, guid: 4e09bad965fd66848aa4fdc65a9464b0, type: 3}
       propertyPath: m_LocalPosition.z

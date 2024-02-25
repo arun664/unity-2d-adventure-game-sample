@@ -1,9 +1,11 @@
+#define COMMENT_REGION
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Plastic.Newtonsoft.Json.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SocialPlatforms;
 using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
@@ -32,22 +34,32 @@ public class PlayerController : MonoBehaviour
 
     //Variables for Projectile
     public GameObject projectilePrefab;
-    public InputAction launchAction;
+    InputAction launchAction;
+
+    //Variables for NPC
+    InputAction talkAction;
 
     private void Awake()
-    {
+    { 
         playerInputActionMap = playerInputController.FindActionMap("PlayerMovement");
-        moveAction = playerInputController.FindAction("Movement");
+        moveAction = playerInputActionMap.FindAction("Movement");
+        launchAction = playerInputActionMap.FindAction("Launch");
+        talkAction = playerInputActionMap.FindAction("Talk");
+        
     }
 
     private void OnEnable()
     {
         moveAction.Enable();
+        launchAction.Enable();
+        talkAction.Enable();
     }
 
     private void OnDisable()
     {
         moveAction.Disable();
+        launchAction.Disable();
+        talkAction.Disable();
     }
 
     // Start is called before the first frame update
@@ -57,8 +69,11 @@ public class PlayerController : MonoBehaviour
         currentHealth = maxHealth;
 
         animator = GetComponent<Animator>();
-        launchAction.Enable();
         launchAction.performed += Launch;
+        launchAction.canceled += Launch;
+
+        talkAction.performed += FindFriend;
+        talkAction.canceled += FindFriend;
 
     }
     // Update is called once per frame
@@ -119,4 +134,59 @@ public class PlayerController : MonoBehaviour
 
         animator.SetTrigger("Launch");
     }
+
+    //void FindFriend(InputAction.CallbackContext callbackContext)
+    //{
+    //    RaycastHit2D hit = Physics2D.Raycast(this.transform.position, Vector2.right, 10.0f, LayerMask.GetMask("NPC"));
+
+    //    if(hit.collider != null)
+    //    {
+    //        //Debug.Log(hit.collider.name);
+    //        NonPlayerCharacter character = hit.collider.GetComponent<NonPlayerCharacter>();
+    //        if (character != null)
+    //        {
+    //            UIHandler.instance.DisplayDialogue();
+    //        }
+    //    }
+    //}
+
+#if COMMENT_REGION
+    void FindFriend(InputAction.CallbackContext callbackContext)
+    {
+
+        if (callbackContext.ReadValueAsButton())
+        {
+            RaycastHit2D hit = Physics2D.Raycast(this.transform.position, moveDirection, 10.0f, LayerMask.GetMask("NPC"));
+
+            if (hit.collider != null)
+            {
+                //Debug.Log(hit.collider.gameObject.name);
+                NonPlayerCharacter character = hit.collider.GetComponent<NonPlayerCharacter>();
+                if (character != null)
+                {
+                    UIHandler.instance.DisplayDialogue();
+                }
+            }
+        }
+        
+
+
+
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.white;
+        Gizmos.DrawLine((Vector2)this.transform.position, Vector2.up * 10.0f);
+        RaycastHit2D hit = Physics2D.Raycast(this.transform.position, moveDirection, 10.0f, LayerMask.GetMask("NPC"));
+        if (hit.collider != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawLine((Vector2)this.transform.position, Vector2.up * 10);
+        }
+
+
+    }
+
+#endif
 }
