@@ -17,6 +17,9 @@ public class EnemyController : MonoBehaviour
     Animator animator;
     bool aggressive = true;
 
+    //Variables to handle audio
+    AudioSource enemyAudioSource;
+
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +28,8 @@ public class EnemyController : MonoBehaviour
         timer = changeTime;
 
         animator = GetComponent<Animator>();
+
+        enemyAudioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -74,6 +79,7 @@ public class EnemyController : MonoBehaviour
 
     public void Fix()
     {
+        enemyAudioSource.Stop();
         aggressive = false;
         enemyRb2D.simulated = false;
         animator.SetTrigger("Fixed");

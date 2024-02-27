@@ -39,6 +39,9 @@ public class PlayerController : MonoBehaviour
     //Variables for NPC
     InputAction talkAction;
 
+    //Variables for Audio Source
+    AudioSource audioSource;
+
     private void Awake()
     { 
         playerInputActionMap = playerInputController.FindActionMap("PlayerMovement");
@@ -74,6 +77,8 @@ public class PlayerController : MonoBehaviour
 
         talkAction.performed += FindFriend;
         talkAction.canceled += FindFriend;
+
+        audioSource = GetComponent<AudioSource>();
 
     }
     // Update is called once per frame
@@ -186,6 +191,11 @@ public class PlayerController : MonoBehaviour
         }
 
 
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 
 #endif
