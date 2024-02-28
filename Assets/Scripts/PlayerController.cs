@@ -1,12 +1,6 @@
 #define COMMENT_REGION
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Plastic.Newtonsoft.Json.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SocialPlatforms;
-using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -30,7 +24,7 @@ public class PlayerController : MonoBehaviour
 
     //Variables related to animation
     Animator animator;
-    Vector2 moveDirection = new Vector2 (1, 0);
+    Vector2 moveDirection = new Vector2(1, 0);
 
     //Variables for Projectile
     public GameObject projectilePrefab;
@@ -43,12 +37,12 @@ public class PlayerController : MonoBehaviour
     AudioSource audioSource;
 
     private void Awake()
-    { 
+    {
         playerInputActionMap = playerInputController.FindActionMap("PlayerMovement");
         moveAction = playerInputActionMap.FindAction("Movement");
         launchAction = playerInputActionMap.FindAction("Launch");
         talkAction = playerInputActionMap.FindAction("Talk");
-        
+
     }
 
     private void OnEnable()
@@ -98,10 +92,10 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Look Y", moveDirection.y);
         animator.SetFloat("Speed", move.magnitude);
 
-        if (isInvincible )
+        if (isInvincible)
         {
             damageCooldown -= Time.deltaTime;
-            if(damageCooldown < 0 )
+            if (damageCooldown < 0)
             {
                 isInvincible = false;
             }
@@ -118,7 +112,7 @@ public class PlayerController : MonoBehaviour
     {
         if (amount < 0)
         {
-            if(isInvincible)
+            if (isInvincible)
             {
                 return;
             }
@@ -173,7 +167,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        
+
 
 
 

@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Projectile : MonoBehaviour
 {
@@ -15,20 +12,20 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.magnitude > 100.0f)
+        if (transform.position.magnitude > 100.0f)
         {
             Destroy(gameObject);
         }
 
     }
 
-    public void Launch( Vector2 direction, float force)
+    public void Launch(Vector2 direction, float force)
     {
         rigidbody2D.AddForce(direction * force);
     }

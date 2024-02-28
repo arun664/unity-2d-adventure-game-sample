@@ -1,6 +1,3 @@
-using Codice.CM.Common;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -85,7 +82,7 @@ public class EnemyController : MonoBehaviour
         enemyRb2D.simulated = false;
         animator.SetTrigger("Fixed");
 
-        if(smokeEffect != null)
+        if (smokeEffect != null)
         {
             smokeEffect.Stop();
         }

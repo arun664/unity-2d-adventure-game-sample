@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HealthCollectible : MonoBehaviour
@@ -14,9 +11,9 @@ public class HealthCollectible : MonoBehaviour
 
         if (controller != null && controller.health < controller.maxHealth)
         {
-                controller.ChangeHealth(healthIncrease);
-                controller.PlaySound(collectedClip);
-                Destroy(gameObject);
+            controller.ChangeHealth(healthIncrease);
+            controller.PlaySound(collectedClip);
+            Destroy(gameObject);
         }
 
     }

@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class UIHandler : MonoBehaviour
 {
     //Variables for Health Bar
-    public static UIHandler instance {  get; private set; }
+    public static UIHandler instance { get; private set; }
     private VisualElement m_HealthBar;
 
 
@@ -34,7 +32,7 @@ public class UIHandler : MonoBehaviour
 
     private void Update()
     {
-        if(m_TimerDisplay > 0)
+        if (m_TimerDisplay > 0)
         {
             m_TimerDisplay -= Time.deltaTime;
             if (m_TimerDisplay < 0)
