@@ -16,6 +16,7 @@ public class EnemyController : MonoBehaviour
     //Variables to handle animation
     Animator animator;
     bool aggressive = true;
+    public ParticleSystem smokeEffect;
 
     //Variables to handle audio
     AudioSource enemyAudioSource;
@@ -83,5 +84,10 @@ public class EnemyController : MonoBehaviour
         aggressive = false;
         enemyRb2D.simulated = false;
         animator.SetTrigger("Fixed");
+
+        if(smokeEffect != null)
+        {
+            smokeEffect.Stop();
+        }
     }
 }
